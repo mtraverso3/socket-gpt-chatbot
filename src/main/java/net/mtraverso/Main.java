@@ -11,7 +11,6 @@ import java.net.*;
 public class Main {
     public static void main(String[] args) {
 
-        Chatbot chatbot = new Chatbot();
 
         int towerPort = 8124;
         String towerIp = "0.0.0.0";
@@ -33,11 +32,13 @@ public class Main {
 
 
             while (true) {
-                // STEP 4
+                // STEP 3
                 // Accept connections from aliens
                 // to enable communication
                 alienSocket = towerSocket.accept();
                 System.out.println("Connection established");
+                Chatbot chatbot = new Chatbot(); // Create a new chatbot for each connection
+
 
                 // Send and receive messages
                 BufferedReader reader = new BufferedReader(new InputStreamReader(alienSocket.getInputStream()));
